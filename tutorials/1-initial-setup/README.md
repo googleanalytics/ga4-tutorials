@@ -1,18 +1,15 @@
-# Google Analytics 4 Tutorial Series
+# GA4 Tutorial Series - Initial Setup
 
-This repo contains the code used in the GA4 Tutorial Series on YouTube.
+This folder contains the code used in the Initial Setup tutorial video on
+YouTube (link coming soon)
 
-The code for each video is available in the [/tutorials](/tutorials) directory.
-
-The current code is found in the [/src](/src) directory which contains all the
-changes made in each video up to this point.
-
-## How to Run the Current Version
+## How to Run this Version
 
 The local server requires [Deno](https://deno.land)
 
 Once Deno is installed, you can run the local web server with the following
-command:
+command from this folder
+[/tutorials/1-initial-setup](/tutorials/1-initial-setup):
 
 ```
 deno run --allow-net --allow-read ./src/index.ts

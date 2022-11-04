@@ -14,6 +14,8 @@ async function handleHttp(conn: Deno.Conn) {
         let filepath = decodeURIComponent(url.pathname);
         if(filepath === "/") {
             filepath = "/index.html"
+        } else if (filepath.toLocaleLowerCase().indexOf(".") <= 0) {
+            filepath = `${filepath}.html`;
         }
 
         let file;

@@ -46,7 +46,7 @@
             </div>
         </div>
     </nav>
-    <main class="container-lg pt-5 pb-5">
+    <main class="container-lg pt-3 pb-5">
         <h1 class="pt-4 pb-2">About the tutorial series</h1>
         <a class="twitter-share-button" target="_blank"
             href="https://twitter.com/intent/tweet?text=%23HelloAnalytics%20%23GA4TutorialSeries">
@@ -79,18 +79,31 @@
     <section class="pb-4 pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <div class="col-md-6 mb-3">
                     <h6>Google Analytics</h6>
                     <p class="footer-description">Google Analytics is an enterprise-class web and app analytics
                         application used by marketers, advertisers, and site and app owners across the web and in mobile
                         apps.</p>
                     <div class="footer-description">
-                        <a href="https://www.youtube.com/channel/UCJ5UyIAa5nEGksjcdp43Ixw"
-                            class="text-reset">Videos</a>&emsp;
-                        <a href="https://support.google.com/analytics" class="text-reset">Support</a>&emsp;
-                        <a href="https://github.com/googleanalytics" class="text-reset">GitHub</a>&emsp;
+                        <a href="https://www.youtube.com/channel/UCJ5UyIAa5nEGksjcdp43Ixw" class="text-reset"
+                            target="_blank">Videos</a>&emsp;
+                        <a href="https://support.google.com/analytics" class="text-reset"
+                            target="_blank">Support</a>&emsp;
+                        <a href="https://github.com/googleanalytics" class="text-reset" target="_blank">GitHub</a>&emsp;
                         <a href="/about.html" class="text-reset">About</a>
                     </div>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form action="/thank-you.html">
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>This is a demo and does not save your email.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="email" name="email" type="text" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

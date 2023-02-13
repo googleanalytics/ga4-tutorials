@@ -1,7 +1,8 @@
 # GA4 Tutorial Series - Events
 
-This folder contains the code used in the Events tutorial video on YouTube (link
-coming soon)
+This folder contains the code used in
+the[Measure user activity with recommended events video](https://www.youtube.com/watch?v=PEPb3uaVILk)
+on YouTube
 
 ## How to Run this Version
 

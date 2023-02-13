@@ -1,7 +1,8 @@
 # GA4 Tutorial Series - Initial Setup
 
-This folder contains the code used in the Initial Setup tutorial video on
-YouTube (link coming soon)
+This folder contains the code used in the
+[Get started with Google Analytics](https://www.youtube.com/watch?v=UuE37-MM1ws)
+video on YouTube.
 
 ## How to Run this Version
 

@@ -1,7 +1,7 @@
 # GA4 Tutorial Series - Custom Events
 
-This folder contains the code used in the Custom Events tutorial video on
-YouTube (link coming soon)
+This folder contains the code used in the
+[Custom Events tutorial video](https://youtu.be/QmEOPuJr05w) on YouTube
 
 ## How to Run this Version
 

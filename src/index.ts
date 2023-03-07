@@ -1,35 +1,55 @@
+import { configure, renderFile } from "https://deno.land/x/eta@v1.11.0/mod.ts";
+
+const viewPath = [
+  `${Deno.cwd()}/public/`,
+  `${Deno.cwd()}/public/partials`,
+  `${Deno.cwd()}/public/layouts`,
+];
+console.log(viewPath);
+configure({ views: viewPath });
+
 const server = Deno.listen({ port: 80 });
-console.log("File server running on http://localhost:80/index.html");
+
+console.log("File server running on http://localhost:80/");
 const __dirname = new URL(".", import.meta.url).pathname;
 
 for await (const conn of server) {
-    handleHttp(conn).catch(console.error);
+  handleHttp(conn).catch(console.error);
 }
 
 async function handleHttp(conn: Deno.Conn) {
-    const httpConn = Deno.serveHttp(conn);
-    for await (const requestEvent of httpConn) {
-        
-        const url = new URL(requestEvent.request.url);
-        let filepath = decodeURIComponent(url.pathname);
-        if(filepath === "/") {
-            filepath = "/index.html"
-        } else if (filepath.toLocaleLowerCase().indexOf(".") <= 0) {
-            filepath = `${filepath}.html`;
-        }
-
-        let file;
-        try {
-            console.log(filepath);
-            file = await Deno.open(__dirname + "/public" + filepath, { read: true });
-        } catch {
-            const notFoundResponse = new Response("404 Not Found", { status: 404 });
-            await requestEvent.respondWith(notFoundResponse);
-            return;
-        }
-
-        const readableStream = file.readable;
-        const response = new Response(readableStream);
-        await requestEvent.respondWith(response);
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    const url = new URL(requestEvent.request.url);
+    let filepath = decodeURIComponent(url.pathname);
+    if (filepath === "/") {
+      filepath = "index.eta";
+    } else if (filepath.toLocaleLowerCase().indexOf(".") <= 0) {
+      filepath = `${filepath}.eta`;
     }
+
+    let file;
+    let response;
+    try {
+      console.log(filepath);
+      if (filepath.indexOf(".eta") > 0) {
+        response = new Response(await renderFile(filepath, {}), {
+          headers: { "content-type": "text/html" },
+        });
+      } else {
+        file = await Deno.open(__dirname + "/public" + filepath, {
+          read: true,
+        });
+        const readableStream = file.readable;
+        response = new Response(readableStream);
+      }
+    } catch (e) {
+      console.error(e);
+      const notFoundResponse = new Response("404 Not Found", { status: 404 });
+      await requestEvent.respondWith(notFoundResponse);
+      return;
+    }
+
+    await requestEvent.respondWith(response);
+  }
 }

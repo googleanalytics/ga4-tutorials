@@ -1,0 +1,32 @@
+<% layout("layout", { title: "About - GA Tutorials" }) %>
+    
+<%~ includeFile("nav") %>
+
+<main class="container-lg pt-3 pb-5">
+    <h1 class="pt-4 pb-2">About the tutorial series</h1>
+    <a class="twitter-share-button" target="_blank"
+        href="https://twitter.com/intent/tweet?text=%23HelloAnalytics%20%23GA4TutorialSeries">
+        <span>Tweet</span></a>
+    <div class="pt-4 content-width">
+        <p>The Google Analytics 4 Tutorials series is a collection of videos created by the Google Analytics team to
+            help you learn how to use Google Analytics 4 and measure your website performance.</p>
+        <p>The videos in the series cover a wide range of topics, from setting up a Google Analytics 4 property to
+            using advanced features like ecommerce and user ID.</p>
+        <p>All the videos in the series can be found on the
+            <a href="https://www.youtube.com/channel/UCJ5UyIAa5nEGksjcdp43Ixw" target="_blank">Google
+                Analytics YouTube channel</a>, in the <a
+                href="https://youtube.com/playlist?list=PLI5YfMzCfRtZ4bHJJDl_IJejxMwZFiBwz" target="_blank">Google
+                Analytics 4
+                Tutorial playlist</a>. In addition to the
+            videos, the code for this website and other helpful resources are available in the <a
+                href="https://github.com/googleanalytics" target="_blank">Google Analytics GitHub repository</a>.
+        </p>
+        <p>For more information about Google Analytics, including new features and instructions,
+            see the Google Analytics <a href="https://support.google.com/analytics" target="_blank">help
+                center</a> and <a href="https://developers.google.com/analytics/devguides/collection/ga4"
+                target="_blank">developer site</a>.</p>
+    </div>
+</main>
+
+<%~ includeFile("footer.eta") %>
+    

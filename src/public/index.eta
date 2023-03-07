@@ -1,0 +1,25 @@
+<% layout("layout", { title: "Home | Google Analytics Tutorials" }) %>
+
+<%~ includeFile("nav") %>
+
+<main class="container-lg pt-3 pb-5">
+    <h1 class="pt-4 pb-2">Hello Analytics!</h1>
+    <a class="twitter-share-button" target="_blank"
+        href="https://twitter.com/intent/tweet?text=%23HelloAnalytics%20%23GA4TutorialSeries">
+        <span>Tweet</span></a>
+    <div class="pt-4 content-width">
+        <p>Welcome to the Google Analytics 4 Tutorial series!</p>
+        <p>In the series, we will build out this website to show you how to use Google Analytics 4 to measure your
+            website activity and performance. All of the code for the series can be found on the Google Analytics
+            GitHub account.</p>
+        <img src="/images/google-analytics.jpg" />
+        <p><span>Do you have any questions or topics that you'd like us to cover?</span> Please add your comments to
+            one of the videos in the series, and we will aim to cover it in a future video.</p>
+        <p>To learn more about this website and the series as a whole, check out <a href="/about">the About
+                page</a>.</p>
+    </div>
+</main>
+
+<%~ includeFile("footer") %>
+
+  

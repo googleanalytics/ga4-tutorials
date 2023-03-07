@@ -15,10 +15,10 @@ You must install [Deno](https://deno.land) to run the website code.
 Once you install Deno, run the local web server with the following command:
 
 ```
-deno run --allow-net --allow-read ./src/index.ts
+deno task start
 ```
 
-Then, open the index.html file in your web browser.
+Then, open [http://localhost](http://localhost) in your web browser.
 
 # Join our community
 

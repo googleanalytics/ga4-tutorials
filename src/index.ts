@@ -1,17 +1,18 @@
 import { configure, renderFile } from "https://deno.land/x/eta@v1.11.0/mod.ts";
 
+const __dirname = new URL(".", import.meta.url).pathname;
+
 const viewPath = [
-  `${Deno.cwd()}/public/`,
-  `${Deno.cwd()}/public/partials`,
-  `${Deno.cwd()}/public/layouts`,
+  `${__dirname}/public`,
+  `${__dirname}/public/partials`,
+  `${__dirname}/public/layouts`,
 ];
-console.log(viewPath);
+
 configure({ views: viewPath });
 
 const server = Deno.listen({ port: 80 });
 
 console.log("File server running on http://localhost:80/");
-const __dirname = new URL(".", import.meta.url).pathname;
 
 for await (const conn of server) {
   handleHttp(conn).catch(console.error);
@@ -45,8 +46,7 @@ async function handleHttp(conn: Deno.Conn) {
       }
     } catch (e) {
       console.error(e);
-      const notFoundResponse = new Response("404 Not Found", { status: 404 });
-      await requestEvent.respondWith(notFoundResponse);
+      response = new Response("404 Not Found", { status: 404 });
       return;
     }
 

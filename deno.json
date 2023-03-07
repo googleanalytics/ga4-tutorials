@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "start": "deno run -A --watch=src/public/ src/index.ts"
+  },
+  "fmt": {
+    "files": {
+      "include": ["src/"]
+    }
+  }
+}

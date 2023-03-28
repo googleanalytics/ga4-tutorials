@@ -38,7 +38,7 @@ async function handleHttp(conn: Deno.Conn) {
           headers: { "content-type": "text/html" },
         });
       } else {
-        file = await Deno.open(__dirname + "/public" + filepath, {
+        file = await Deno.open(__dirname + "public" + filepath, {
           read: true,
         });
         const readableStream = file.readable;

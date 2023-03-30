@@ -41,7 +41,7 @@
     });
     document.getElementById('btn-reject-all').addEventListener('click', function() {
       setConsent({
-        necessary: true,
+        necessary: false,
         analytics: false,
         preferences: false,
         marketing: false
@@ -53,8 +53,8 @@
   
   function setConsent(consent) {
     const consentMode = {
-      'functionality_storage': 'granted',
-      'security_storage': 'granted',
+      'functionality_storage': consent.necessary ? 'granted' : 'denied',
+      'security_storage': consent.necessary ? 'granted' : 'denied',
       'ad_storage': consent.marketing ? 'granted' : 'denied',
       'analytics_storage': consent.analytics ? 'granted' : 'denied',
       'personalization': consent.preferences ? 'granted' : 'denied',

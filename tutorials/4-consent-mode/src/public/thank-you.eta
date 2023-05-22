@@ -1,0 +1,11 @@
+<% layout("layout", { title: "Thank You! - GA Tutorials" }) %>
+    
+<%~ includeFile("nav") %>
+
+<main class="container-lg pt-4">
+    <h1>Thank You for signing up!</h1>
+    <p>You didn't actually signup for anything, and we didn't save your email. This is just a demo. Learn more on
+        the <a href="/about">About</a> page.</p>
+</main>
+
+<%~ includeFile("footer.eta") %>

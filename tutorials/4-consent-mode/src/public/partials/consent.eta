@@ -59,7 +59,7 @@
       'analytics_storage': consent.analytics ? 'granted' : 'denied',
       'personalization': consent.preferences ? 'granted' : 'denied',
     };
-    gtag('consent', 'update', consent);  
+    gtag('consent', 'update', consentMode);  
     localStorage.setItem('consentMode', JSON.stringify(consentMode));
   }
   

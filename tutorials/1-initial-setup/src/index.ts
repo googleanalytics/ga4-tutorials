@@ -1,5 +1,13 @@
-const server = Deno.listen({ port: 80 });
-console.log("File server running on http://localhost:80/index.html");
+import { parse } from "https://deno.land/std@0.207.0/flags/mod.ts";
+
+const flags = parse(Deno.args, {
+  string: [ "port" ],
+  default: { port: 80 },
+});
+
+const server = Deno.listen({ port: flags.port });
+console.log("File server running on http://localhost:" + flags.port + "/");
+
 const __dirname = new URL(".", import.meta.url).pathname;
 
 for await (const conn of server) {
@@ -9,7 +17,7 @@ for await (const conn of server) {
 async function handleHttp(conn: Deno.Conn) {
     const httpConn = Deno.serveHttp(conn);
     for await (const requestEvent of httpConn) {
-        
+
         const url = new URL(requestEvent.request.url);
         const filepath = decodeURIComponent(url.pathname);
 

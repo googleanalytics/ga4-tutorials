@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=src/public/ src/index.ts"
+    "start": "deno run --allow-net --allow-read --watch=src/public/ src/index.ts"
   },
   "fmt": {
     "files": {

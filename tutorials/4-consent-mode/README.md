@@ -13,7 +13,17 @@ Once you install Deno, run the local web server with the following command:
 deno task start
 ```
 
-Then, open [http://localhost](http://localhost) in your web browser.
+Then, open <http://localhost> in your web browser.
+
+By default, the server listens on port 80. If that port is in use or is
+otherwise unavailable, override the port using the `--port` argument.  For
+example, you could run the server on port 8000 as follows:
+
+```
+deno task start --port 8000
+```
+
+Then, open <http://localhost:8000> in your web browser.
 
 # Join our community
 

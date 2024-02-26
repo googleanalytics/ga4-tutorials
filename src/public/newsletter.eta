@@ -6,7 +6,7 @@
     <h1>Signup for our Newsletter</h1>
     <form id="newsletter-form" action="/thank-you">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                 placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">This form does not save your email. It is for the

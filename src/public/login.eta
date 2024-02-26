@@ -1,0 +1,83 @@
+<% layout("layout", { title: "Login - GA Tutorials" }) %>
+    
+<%~ includeFile("nav") %>
+
+<main class="container-lg pt-3">
+    <h1>Simulate login to set User ID</h1>
+    <form id="login-form">
+        <div class="form-group">
+            <label for="user-id">GA4 User ID</label>
+            <input type="text" class="form-control" id="user" name="user-id" aria-describedby="userIdHelp"
+                placeholder="Enter User ID">
+            <small id="userIdHelp" class="form-text text-muted">This form simply
+            sets your User ID so tagging will include it in events. To log out, submit
+            the form without a value.</small>
+        </div>
+        <button type="submit" id="btn-login" class="btn btn-primary">Submit</button>
+        <button type="button" id="gen-id" class="btn btn-info">Generate ID</button>
+        <button type="button" id="btn-logout" class="btn btn-warning">Log out</button>
+    </form>
+</main>
+
+<script>
+  
+    document.getElementById('btn-login').addEventListener('click', function() {
+        loginUserId(document.getElementById('user').value);
+    });
+
+    function loginUserId(userId) {
+        // Sets 'userId' in storage so layout.eta can set this in the dataLayer on
+        // each page.
+        localStorage.setItem('userId', userId);
+    }
+
+    document.getElementById('btn-logout').addEventListener('click', function() {
+        logout(document.getElementById('user'));
+    });
+
+    function logout(userIdField) {
+        localStorage.removeItem('userId');
+        userIdField.value = null;
+    }
+
+    document.getElementById('gen-id').addEventListener('click', function() {
+        generateUserId(document.getElementById('user'));
+    });
+
+    function generateUserId(userField) {
+        const prefixes = [
+            'doubloons',
+            'oceanographer',
+            'retrogressed',
+            'unmistakably',
+            'counterbalanced',
+            'wainscottings',
+            'servomechanism',
+            'expressionist',
+            'preciousness',
+            'fossilization',
+            'conglomerated',
+            'anthropomorphism',
+            'reappointment',
+            'transfigures',
+            'choreographer',
+            'sophisticated',
+            'calibrations',
+            'propitiating',
+            'effortlessly',
+            'prioritizing',
+            'rechargeable',
+            'thermostatic',
+            'acclimatization',
+        ];
+        const randIndex = Math.floor(Math.random() * prefixes.length);
+        const randId = Math.floor(Math.random() * 1000 * 1000 * 1000 * 1000);
+        userField.value = prefixes[randIndex] + '-' + randId;
+    }
+
+    window.onload = () => document.getElementById('user').value = localStorage.getItem('userId');
+  
+</script>
+
+<%~ includeFile("footer.eta") %>
+ 

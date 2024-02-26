@@ -24,6 +24,10 @@
         } else {
             gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
         }
+
+        if(localStorage.getItem('userId') != null) {
+            window.dataLayer.push({'user_id': localStorage.getItem('userId')});
+        }
     </script>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -45,6 +49,8 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <%~ it.body %>
+
+    <%~ includeFile("debug")  %>
 
     <%~ includeFile("consent")  %>
 

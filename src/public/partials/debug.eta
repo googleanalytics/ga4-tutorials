@@ -1,0 +1,75 @@
+<div class="container-sm">
+  <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#debug-panel" aria-expanded="true" aria-controls="debug-panel">Toggle debug panel</button>
+  <!-- Collapsible debug panel -->
+  <div class="collapse" id="debug-panel">
+      <button id="btn-fetch" class="btn btn-outline-primary">Fetch debug values</button>
+      <button id="btn-clear" class="btn btn-outline-warning">Clear client and session</button>
+      <br/>
+      <label for="tag-id">GA4 Tag ID</label>
+      <input type="text" class="form-control" id="tag-id" name="tag-id" disabled="true">
+      <label for="session-id">GA4 Session ID</label>
+      <input type="text" class="form-control" id="session-id" name="session-id" disabled="true">
+      <label for="client-id">GA4 Client ID</label>
+      <input type="text" class="form-control" id="client-id" name="client-id" disabled="true">
+      <label for="user-id">GA4 User ID</label>
+      <input type="text" class="form-control" id="user-id" name="user-id" disabled="true">
+  </div>
+</div>
+
+<script>
+  // Function for populating the debug panel values.
+  function setIds() {
+    // TODO: This may not be a reliable solution. From:
+    //       https://stackoverflow.com/questions/76075126/given-gtm-installed-ga4-how-to-send-events-via-gtag-without-send-to
+    var gtagIds = Object.keys( window.google_tag_manager || [] ).filter( e => { return e.substring(0,2) == 'G-' } );
+    if (gtagIds) {
+      // Uses the first tag ID found.
+      const firstTagId = gtagIds[0];
+
+      // Gets each field that will be updated.
+      const tagIdField = document.getElementById('tag-id');
+      const sessionIdField = document.getElementById('session-id');
+      const clientIdField = document.getElementById('client-id');
+      const userIdField = document.getElementById('user-id');
+
+      Promise.all([
+        firstTagId,
+        localStorage.getItem('userId'),
+        // Gets values from gtag.
+        // See https://developers.google.com/tag-platform/gtagjs/reference#set_examples.
+        new Promise(cid => gtag('get', firstTagId, 'client_id', cid)),
+        new Promise(sid => gtag('get', firstTagId, 'session_id', sid)),
+      ]).then(([tagId, userId, clientId, sessionId]) => {
+        // Updates value for each field.
+        tagIdField.value = tagId;
+        userIdField.value = userId;
+        clientIdField.value = clientId;
+        sessionIdField.value = sessionId;
+
+        // Logs info as an object.
+        console.log(JSON.stringify(
+          {
+            "user_id": userIdField.value,
+            "client_id": clientId,
+            "session_id": sessionId,
+          },
+          null,
+          '  '));
+      });
+    }
+  }
+  document.getElementById('btn-fetch').addEventListener("click", setIds);
+
+  // Function for clearing the GA cookies.
+  function clearCookies() {
+    document.cookie.split('; ').map(c => c.split('=')[0]).forEach(
+      name => document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;');
+    // Reloads the page.
+    location.reload();
+  }
+  document.getElementById('btn-clear').addEventListener("click", clearCookies);
+
+  // Populates the debug panel when shown.
+  document.getElementById('debug-panel').addEventListener('shown.bs.collapse', event =>
+    setIds());
+</script>

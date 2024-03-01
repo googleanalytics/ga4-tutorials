@@ -1,4 +1,5 @@
 import { configure, renderFile } from "https://deno.land/x/eta@v1.11.0/mod.ts";
+import { parse } from "https://deno.land/std@0.207.0/flags/mod.ts";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
@@ -10,9 +11,13 @@ const viewPath = [
 
 configure({ views: viewPath });
 
-const server = Deno.listen({ port: 80 });
+const flags = parse(Deno.args, {
+  string: [ "port" ],
+  default: { port: 80 },
+});
 
-console.log("File server running on http://localhost:80/");
+const server = Deno.listen({ port: flags.port });
+console.log("File server running on http://localhost:" + flags.port + "/");
 
 for await (const conn of server) {
   handleHttp(conn).catch(console.error);

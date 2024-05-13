@@ -1,6 +1,6 @@
-<% layout("layout", { title: "Profile - GA Tutorials" }) %>
+<% layout("./layouts/layout", { title: "Profile - GA Tutorials" }) %>
 
-<%~ includeFile("nav") %>
+<%~ include("./partials/nav") %>
 
 <main class="container-lg pt-3">
     <h1>Choose your role:</h1>
@@ -20,4 +20,4 @@
     </form>
 </main>
 
-<%~ includeFile("footer.eta") %>
+<%~ include("./partials/footer.eta") %>

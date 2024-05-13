@@ -1,7 +1,8 @@
+import * as path from "https://deno.land/std@0.224.0/path/mod.ts";
 import { Eta } from "https://deno.land/x/eta@v3.0.3/src/index.ts";
 import { parseArgs } from "jsr:@std/cli/parse-args";
 
-const __dirname = new URL(".", import.meta.url).pathname;
+const __dirname = path.dirname(path.fromFileUrl(import.meta.url));
 
 const viewpath = Deno.cwd() + "/src/public/";
 const eta = new Eta({ views: viewpath, cache: true });
@@ -29,7 +30,7 @@ async function handler(request: Request) {
         headers: { "content-type": "text/html" },
       });
     } else {
-      file = await Deno.open(__dirname + "public" + filepath, {
+      file = await Deno.open(__dirname + "/public" + filepath, {
         read: true,
       });
       const readableStream = file.readable;

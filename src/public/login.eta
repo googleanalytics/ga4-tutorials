@@ -1,17 +1,16 @@
-<% layout("layout", { title: "Login - GA Tutorials" }) %>
-    
-<%~ includeFile("nav") %>
+<% layout("./layouts/layout", { title: "Login - GA Tutorials" }) %>
+
+<%~ include("./partials/nav") %>
 
 <main class="container-lg pt-3">
     <h1>Simulate login to set User ID</h1>
     <form id="login-form">
         <div class="form-group">
             <label for="user-id">GA4 User ID</label>
-            <input type="text" class="form-control" id="user" name="user-id" aria-describedby="userIdHelp"
-                placeholder="Enter User ID">
+            <input type="text" class="form-control" id="user" name="user-id" aria-describedby="userIdHelp" placeholder="Enter User ID">
             <small id="userIdHelp" class="form-text text-muted">This form simply
-            sets your User ID so tagging will include it in events. To log out, submit
-            the form without a value.</small>
+                sets your User ID so tagging will include it in events. To log out, submit
+                the form without a value.</small>
         </div>
         <button type="submit" id="btn-login" class="btn btn-primary">Submit</button>
         <button type="button" id="gen-id" class="btn btn-info">Generate ID</button>
@@ -20,7 +19,6 @@
 </main>
 
 <script>
-  
     document.getElementById('btn-login').addEventListener('click', function() {
         loginUserId(document.getElementById('user').value);
     });
@@ -76,8 +74,6 @@
     }
 
     window.onload = () => document.getElementById('user').value = localStorage.getItem('userId');
-  
 </script>
 
-<%~ includeFile("footer.eta") %>
- 
+<%~ include("./partials/footer.eta") %>

@@ -1,6 +1,6 @@
-<% layout("layout", { title: "Thank You! - GA Tutorials" }) %>
-    
-<%~ includeFile("nav") %>
+<% layout("./layouts/layout", { title: "Thank You! - GA Tutorials" }) %>
+
+<%~ include("./partials/nav") %>
 
 <main class="container-lg pt-4">
     <h1>Thank You for signing up!</h1>
@@ -8,4 +8,4 @@
         the <a href="/about">About</a> page.</p>
 </main>
 
-<%~ includeFile("footer.eta") %>
+<%~ include("./partials/footer.eta") %>

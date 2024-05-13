@@ -1,14 +1,13 @@
-<% layout("layout", { title: "Newsletter Signup - GA Tutorials" }) %>
-    
-<%~ includeFile("nav") %>
+<% layout("./layouts/layout", { title: "Newsletter Signup - GA Tutorials" }) %>
+
+<%~ include("./partials/nav") %>
 
 <main class="container-lg pt-3">
     <h1>Signup for our Newsletter</h1>
     <form id="newsletter-form" action="/thank-you">
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-                placeholder="Enter email">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">This form does not save your email. It is for the
                 demo.</small>
         </div>
@@ -16,5 +15,4 @@
     </form>
 </main>
 
-<%~ includeFile("footer.eta") %>
- 
+<%~ include("./partials/footer.eta") %>

@@ -1,7 +1,7 @@
-# Google Analytics 4 Tutorial Series
+# Google Analytics Tutorial Series
 
 This repository contains the code used in the demo website for the
-[Google Analytics 4 (GA4) Tutorial Series](https://www.youtube.com/watch?v=oJx9DpXtmAE&list=PLI5YfMzCfRtZ4bHJJDl_IJejxMwZFiBwz)
+[Google Analytics Tutorial Series](https://www.youtube.com/watch?v=oJx9DpXtmAE&list=PLI5YfMzCfRtZ4bHJJDl_IJejxMwZFiBwz)
 on YouTube. You can find the code for each video in the [/tutorials](/tutorials)
 directory.
 

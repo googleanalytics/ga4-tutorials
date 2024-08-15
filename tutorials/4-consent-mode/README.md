@@ -1,4 +1,4 @@
-# GA4 Tutorial Series - Consent Mode
+# GA Tutorial Series - Consent Mode
 
 This folder contains the code used in the
 [Consent Mode tutorial video](https://youtu.be/MqAEbshMv84) on YouTube
@@ -30,5 +30,5 @@ Then, open <http://localhost:8000> in your web browser.
 💬 [Join](https://discord.gg/65mah7ZZsG) the official GA Discord server\
 📝 [Sign up](https://groups.google.com/g/google-analytics-developer-newsletter)
 for the Google Analytics Developer Newsletter\
-📄 [Explore](https://developers.google.com/analytics/) GA4 developer
+📄 [Explore](https://developers.google.com/analytics/) GA developer
 documentation

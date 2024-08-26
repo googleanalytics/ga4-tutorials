@@ -1,4 +1,4 @@
-# GA4 Tutorial Series - Initial Setup
+# GA Tutorial Series - Initial Setup
 
 This folder contains the code used in the
 [Get started with Google Analytics](https://www.youtube.com/watch?v=UuE37-MM1ws)
@@ -33,5 +33,5 @@ Then, open <http://localhost:8000> in your web browser.
 💬 [Join](https://discord.gg/65mah7ZZsG) the official GA Discord server\
 📝 [Signup](https://groups.google.com/g/google-analytics-developer-newsletter)
 for the Google Analytics Developer Newsletter\
-📄 [Explore](https://developers.google.com/analytics/) GA4 developer
+📄 [Explore](https://developers.google.com/analytics/) GA developer
 documentation

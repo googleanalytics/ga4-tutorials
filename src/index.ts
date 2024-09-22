@@ -36,12 +36,12 @@ async function handler(request: Request) {
       const readableStream = file.readable;
       response = new Response(readableStream);
     }
-  } catch (e) {
+  } catch (e) {  
     console.error(e);
     response = new Response("404 Not Found", { status: 404 });
   }
 
   return response;
 }
-
+  
 Deno.serve({ port: parseInt(flags.port) }, handler);

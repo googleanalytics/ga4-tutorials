@@ -4,7 +4,7 @@ import { parseArgs } from "jsr:@std/cli/parse-args";
 
 const __dirname = path.dirname(path.fromFileUrl(import.meta.url));
 
-const viewpath = Deno.cwd() + "/src/public/";
+const viewpath = Deno.cwd() + "/public/";
 const eta = new Eta({ views: viewpath, cache: true });
 
 const flags = parseArgs(Deno.args, {

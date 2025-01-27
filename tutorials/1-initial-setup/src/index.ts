@@ -19,7 +19,10 @@ async function handleHttp(conn: Deno.Conn) {
     for await (const requestEvent of httpConn) {
 
         const url = new URL(requestEvent.request.url);
-        const filepath = decodeURIComponent(url.pathname);
+        let filepath = decodeURIComponent(url.pathname);
+        if(filepath === "/") {
+            filepath = "/index.html"
+        }
 
         let file;
         try {

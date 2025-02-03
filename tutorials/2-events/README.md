@@ -1,7 +1,7 @@
 # GA Tutorial Series - Events
 
 This folder contains the code used in
-the[Measure user activity with recommended events video](https://www.youtube.com/watch?v=PEPb3uaVILk)
+the [Measure user activity with recommended events video](https://www.youtube.com/watch?v=PEPb3uaVILk)
 on YouTube
 
 ## How to Run this Version
